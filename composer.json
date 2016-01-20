@@ -1,0 +1,20 @@
+{
+    "name": "okento/user-bundle",
+    "description": "user-bundle to be used with okento/admin-bundle",
+    "type": "symfony-bundle",
+    "require": {
+        "okento/user-bundle": "dev-master",
+        "doctrine/orm": "^2.5",
+        "symfony/assetic-bundle": "^2.7"
+    },
+    "require-dev": {
+
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SoipoServices Srls",
+            "email": "github@soiposervices.com"
+        }
+    ]
+}
