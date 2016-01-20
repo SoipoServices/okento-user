@@ -1,10 +1,10 @@
 services:
     soipo_okento_user.manager.user:
         class: Soipo\Okento\UserBundle\Manager\UserManager
-        arguments: [@doctrine.orm.entity_manager, "SoipoOkentoUserBundle:User" ,@security.password_encoder]
+        arguments: ["@doctrine.orm.entity_manager", "SoipoOkentoUserBundle:User" ,"@security.password_encoder"]
 
     soipo_okento_user.admin_menu_listener:
         class: Soipo\Okento\UserBundle\Event\UserAdminMenuListener
-        arguments: [@security.token_storage]
+        arguments: ["@security.token_storage"]
         tags:
             - { name: kernel.event_listener, event: okento.admin_menu }

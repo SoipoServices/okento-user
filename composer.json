@@ -10,6 +10,10 @@
     "require-dev": {
 
     },
+    "keywords" : [
+        "okento",
+        "boostrap"
+    ],
     "license": "MIT",
     "authors": [
         {
