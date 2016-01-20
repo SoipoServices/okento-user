@@ -1,0 +1,64 @@
+{% extends 'SoipoOkentoAdminBundle:Layout:layout.html.twig' %}
+
+{% block content_header  %}
+    <h1>{{ 'title.list'|trans({},'user') }}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <div class="box-header">
+        </div><!-- /.box-header -->
+        <div class="box-body">
+
+                    {% if users is not null %}
+                        <table id="user_list" class="table table-bordered  dataTable">
+                            <thead>
+                            <tr>
+                                <th>{{ 'label.firstname'|trans({},'user') }}</th>
+                                <th>{{ 'label.lastname'|trans({},'user') }}</th>
+                                <th>{{ 'label.username'|trans({},'user') }}</th>
+                                <th>{{ 'label.email'|trans({},'user') }}</th>
+                                <th>{{ 'label.active'|trans({},'user') }}</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.firstName }}</td>
+                                    <td>{{ user.lastName }}</td>
+                                    <td>{{ user.username}}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.active ? 'yes':'no' |trans({},'user') }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <a href="{{ url('soipo_okento_user_view',{'id':user.id}) }}"><i class="fa fa-eye"></i> {{ 'action.view'|trans({},'user') }}</a>
+                                            </button>
+                                            {% if not user.active %}
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                    <a href="{{ url('soipo_okento_user_active',{'id':user.id}) }}"><i class="fa fa-power-off"></i> {{ 'action.active'|trans({},'user') }}</a>
+                                            </button>
+                                            {% elseif  'ROLE_ADMIN' in user.roles == false %}
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                  <a href="{{ url('soipo_okento_user_active',{'id':user.id,'admin': true}) }}"><i class="fa fa-power-off"></i> {{ 'action.admin'|trans({},'user') }}</a>
+                                            </button>
+                                            {% endif %}
+                                            <button type="button" class="btn btn-default btn-sm">
+                                              <a href="{{ url('soipo_okento_user_delete',{'id':user.id}) }}"><i class="fa fa-times"></i> {{ 'action.delete'|trans({},'user') }}</a>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p>{{ 'no.user.found'|trans({},'user') }}</p>
+                    {% endif %}
+        </div><!-- /.box-body -->
+
+    </div><!-- /.box -->
+{% endblock %}
+
+{% block documentReady %}$('#user_list').DataTable();{% endblock documentReady %}

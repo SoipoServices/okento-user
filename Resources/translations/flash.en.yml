@@ -1,0 +1,14 @@
+success:
+  thank:
+    you:
+      for:
+         joining: 'Thank you %user% for joining our website.'
+         update: 'Thank you %user% for updating your profile.'
+  user:
+     delete:  User %id% has been deleted
+     active: User %id% has been activated
+
+error:
+  user:
+       delete:  User %id% could not be canceled
+       not.found: User %id% could not be found

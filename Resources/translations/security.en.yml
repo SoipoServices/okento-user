@@ -1,0 +1,71 @@
+flash:
+  thank.you.for.joining: 'Thank you %user% for joining our website.'
+  reset.password.success: 'A mail has been sent to %email% with the new passoword.'
+  reset.password.error:  'Could not find any user with the email: %email%.'
+
+label:
+    title: Choose a title
+    username: Enter your username
+    password: Enter your password
+    password.repeat: Retype your password
+    city: Enter your city
+    province: Enter your province/state/area
+    postalCode: Enter your postal code
+    phone: Enter your phone
+    country: Select your coutntry
+    email: Enter your email address
+    firstname: Enter your first name
+    secondname: Enter your middle name
+    lastname: Enter your last name
+    affiliation: Enter your affiliation
+    association: Are you a member of the  Italian engineering association (Ordine degli Ingegneri)?
+    associationCode: Enter your association number
+    associationProvince: Enter your association province
+    terms: I agree to the terms
+    remember.me: Remember me
+choices:
+   title:
+      mr: Mr
+      miss: Miss
+      mrs: Mrs
+      dr: Dr.
+      prof: Professor
+select:
+    title: Select a title
+    country: Select your country
+
+button:
+  register: Register
+  sign.in: Sign In !
+  reset: Reset
+
+email:
+  join:
+    subject: "Hi %user%, thank you for joining."
+    body: "<p>Thank you for registering as a user with WCPAM2017. Please keep track of your username and password.<p><p>Username: %username%</p><p>Password: %password% </p><p>Thank you,</p><p>WCPAM2017 Organizing Committee wcpam2017@wcpam2017.com Website: <a href='www.wcpam2017.com'>www.wcpam2017.com</a></p>"
+  reset.password:
+    subject:  "Hi %user%, here your new password."
+    body: "<h1>Hi %user%<h1> <p>Here your new password: %plainPassword%</p>"
+
+#adminlte2
+welcome.okento: Welcome on Okento !
+or: or
+already.a.member: I already have a membership
+link:
+  sign.in.facebook: Sign in using Facebook
+  sign.in.googleplus: Sign in using Google+
+  forgot.password: I forgot my password
+  join: Register a new author
+login:
+  title:  Log in !
+join:
+    title: Join us !
+    content: Register a new author
+reset.password:
+    content: Enter your username and email to reset your password
+
+abstract:
+  template:
+    doc: Download the abstract doc template
+    pdf: Download the abstract pdf template
+    tip: A link for abstract submission will be posted here in January 2016

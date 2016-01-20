@@ -1,0 +1,103 @@
+{% extends 'SoipoOkentoUserBundle::base.html.twig' %}
+
+{% block title %} {{ parent() }} - {{ 'login.title'|trans({},'security') }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+    '@SoipoOkentoAdminBundle/Resources/public/css/iCheck/square/blue.css'
+    filter='?cssrewrite'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body_class %}hold-transition login-page{% endblock %}
+
+{% form_theme form _self %}
+
+{% block __username_row %}
+    <div class="form-group has-feedback">
+        {{ form_widget(form, {'attr': {'class': 'form-control','placeholder': form.vars.label}}) }}
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+{% block __password_row %}
+    <div class="form-group has-feedback">
+        {{ form_widget(form, {'attr': {'class': 'form-control','placeholder': form.vars.label}}) }}
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+{% block __remember_me_row %}
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="checkbox icheck">
+                <label>
+                    {{ form_widget(form) }}
+                    {{ form_label(form) }}
+                </label>
+                {{ form_errors(form) }}
+            </div>
+        </div><!-- /.col -->
+        <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ 'button.sign.in'|trans({},'security') }}</button>
+        </div><!-- /.col -->
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <div class="login-page">
+        <div class="login-box">
+            {% block flashes %}
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="alert alert-{{ label }} alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endblock %}
+            <div class="login-box-body">
+                {% if error %}
+                    <div class="alert alert-danger alert-dismissable">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+
+                <br/>
+                <a href="{{ url('soipo_okento_user_reset_password') }}">{{ 'link.forgot.password'|trans({},'security')}}</a>
+                <br/>
+                <a href="{{ url('soipo_okento_user_join') }}" class="text-center">{{ 'link.join'|trans({},'security')}}</a>
+                <br/>
+                <a href="{{ asset('WCPAM-abstract-template_OK.doc') }}" class="text-center">{{ 'abstract.template.doc'|trans({},'security') }}</a>
+                <br/>
+                <a href="{{ asset('WCPAM-abstract-template_OK.pdf') }}" class="text-center">{{ 'abstract.template.pdf'|trans({},'security') }}</a>
+                <br/>
+                <p>{{ 'abstract.template.tip'|trans({},'security') }}</p>
+            </div><!-- /.login-box-body -->
+        </div><!-- /.login-box -->
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+    '@SoipoOkentoAdminBundle/Resources/public/js/iCheck/icheck.min.js'
+     %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block documentReady %}
+    $('input').iCheck({
+    checkboxClass: 'icheckbox_square-blue',
+    radioClass: 'iradio_square-blue',
+    increaseArea: '20%' // optional
+    });
+{% endblock documentReady %}

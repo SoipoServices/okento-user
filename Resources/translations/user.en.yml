@@ -1,0 +1,45 @@
+title:
+  update: Update your profile
+  list: List of the registered users
+  view: View user profile
+no.user.found: No user has been found
+yes: Yes
+no: No
+label:
+    title: Title
+    username: Username
+    password: Password
+    password.repeat: Retype password
+    city: City
+    province: Province/State/Area
+    postalCode: Enter your postal code
+    phone: Phone number
+    country: Country
+    email: Email
+    firstname: First name
+    lastname: Last name
+    affiliation: Enter your affiliation
+    association: Italian engineer association member?
+    associationCode: Association number
+    associationProvince: Association province
+    secondname: Second name
+    active: Active
+choices:
+   title:
+      mr: Mr
+      miss: Miss
+      mrs: Mrs
+      dr: Dr.
+      prof: Professor
+select:
+    title: Select a title
+    country: Select your country
+
+action:
+    view: View
+    delete: Delete
+    active: Active
+    admin: Make admin
+
+button:
+  save: Save

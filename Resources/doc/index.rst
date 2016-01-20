@@ -1,0 +1,4 @@
+Config:
+
+assetic:
+    bundles:        [SoipoOkentoUserBundle]

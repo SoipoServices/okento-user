@@ -1,0 +1,42 @@
+soipo_okento_user_homepage:
+    path:     /
+    defaults: { _controller: SoipoOkentoUserBundle:Security:join }
+
+soipo_okento_user_join:
+    path:     /join
+    defaults: { _controller: SoipoOkentoUserBundle:Security:join }
+
+soipo_okento_user_login:
+    path:     /login
+    defaults: { _controller: SoipoOkentoUserBundle:Security:login }
+
+soipo_okento_user_login_check:
+    path:     /login_check
+    defaults: { _controller: SoipoOkentoUserBundle:Security:loginCheck }
+
+soipo_okento_user_reset_password:
+    path:     /reset/password
+    defaults: { _controller: SoipoOkentoUserBundle:Security:resetPassword }
+
+soipo_okento_user_logout:
+    path:   /logout
+
+soipo_okento_user_profile_update:
+    path:     /member/profile/update
+    defaults: { _controller: SoipoOkentoUserBundle:UserAdmin:update }
+
+soipo_okento_user_users_list:
+    path:     /member/users/list
+    defaults: { _controller: SoipoOkentoUserBundle:UserAdmin:list }
+
+soipo_okento_user_view:
+    path:     /member/user/{id}/view
+    defaults: { _controller: SoipoOkentoUserBundle:UserAdmin:view }
+
+soipo_okento_user_active:
+    path:     /member/user/{id}/active/{admin}
+    defaults: { _controller: SoipoOkentoUserBundle:UserAdmin:active , admin: false }
+
+soipo_okento_user_delete:
+    path:     /member/user/{id}/delete
+    defaults: { _controller: SoipoOkentoUserBundle:UserAdmin:delete }

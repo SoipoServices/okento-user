@@ -1,0 +1,45 @@
+title:
+  update: Aggiorna il tuo profilo
+  list: Lista degli utenti iscritti
+  view: Guarda il profilo
+no.user.found: No user has been found
+yes: Si
+no: No
+label:
+    title: Titolo
+    username: Nome utente
+    password: Password
+    password.repeat: Conferma password
+    city: Città
+    province: Provincia/Stato/Area
+    postalCode: Codice postale
+    phone: Telefono
+    country: Paese
+    email: Email
+    firstname: Nome
+    lastname: Cognome
+    secondname: Secondo nome
+    affiliation: Affiliazione
+    association:  "Ingegnere italiano iscritto all'Ordine?"
+    associationCode: "Numero di iscrizione all'albo"
+    associationProvince: "Provincia di iscrizione all'Ordine"
+    active: Attivo
+choices:
+   title:
+          mr: Sig.
+          miss: Sig.ra
+          mrs: Sig.na
+          dr: Dr.
+          prof: Professorore/ssa
+select:
+       title: Seleziona un titolo
+       country: Seleziona un paese
+
+action:
+    view: Guarda
+    delete: Cancella
+    active: Attiva
+    admin: Rendi admin
+
+button:
+  save: Salva

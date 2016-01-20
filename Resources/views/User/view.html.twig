@@ -1,0 +1,69 @@
+{% extends 'SoipoOkentoAdminBundle:Layout:layout.html.twig' %}
+
+{% block content_header  %}
+    <h1>{{ 'title.view'|trans({},'user') }}</h1>
+{% endblock %}
+
+
+{% block content %}
+    <div class="box">
+        <div class="box-header">
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            {% if user is not null %}
+                <table id="user" class="table table-bordered table-striped">
+                    <tbody>
+                    <tr>
+                        <th>{{ 'label.title'|trans({},'user') }}</th>
+                        <td>{{ user.title }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.firstname'|trans({},'user') }}</th>
+                        <td>{{ user.firstName }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.lastname'|trans({},'user') }}</th>
+                        <td>{{ user.lastName }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.email'|trans({},'user') }}</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.city'|trans({},'user') }}</th>
+                        <td>{{ user.city }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.province'|trans({},'user') }}</th>
+                        <td>{{ user.province }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.postalCode'|trans({},'user') }}</th>
+                        <td>{{ user.postalCode }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.country'|trans({},'user') }}</th>
+                        <td>{{ user.country }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.phone'|trans({},'user') }}</th>
+                        <td>{{ user.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.affiliation'|trans({},'user') }}</th>
+                        <td>{{ user.affiliation }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'label.active'|trans({},'user') }}</th>
+                        <td>{{ user.active ? 'yes':'no' |trans({},'user') }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                <p>{{ 'no.user.found'|trans({},'user') }}</p>
+            {% endif %}
+        </div><!-- /.box-body -->
+
+    </div><!-- /.box -->
+{% endblock %}
+

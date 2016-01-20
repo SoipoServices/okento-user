@@ -1,0 +1,9 @@
+services:
+    soipo_okento_user.provider.user:
+        class: Soipo\Okento\UserBundle\Security\UserProvider
+        public: false
+        arguments: [@soipo_okento_user.manager.user]
+
+    soipo_okento_user.provider.authenticator:
+        class:     Soipo\Okento\UserBundle\Security\Authenticator
+        arguments: ["@security.password_encoder"]
