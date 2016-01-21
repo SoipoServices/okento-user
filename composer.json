@@ -3,9 +3,9 @@
     "description": "user-bundle to be used with okento/admin-bundle",
     "type": "symfony-bundle",
     "require": {
-        "okento/user-bundle": "dev-master",
         "doctrine/orm": "^2.5",
-        "symfony/assetic-bundle": "^2.7"
+        "symfony/assetic-bundle": "^2.7",
+        "knplabs/knp-menu": "^2.1"
     },
     "require-dev": {
 
