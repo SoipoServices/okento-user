@@ -3,7 +3,7 @@
     "description": "user-bundle to be used with okento/admin-bundle",
     "type": "symfony-bundle",
     "require": {
-        "okento/user-bundle": "^0.0",
+        "okento/user-bundle": "dev-master",
         "doctrine/orm": "^2.5",
         "symfony/assetic-bundle": "^2.7"
     },
