@@ -10,4 +10,14 @@ namespace Soipo\Okento\UserBundle\Entity;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findOneByUsernameOrEmail($username){
+
+        $query = $this->createQueryBuilder('u')
+                    ->where('u.username = :username')
+                    ->orWhere('u.email = :username')
+                    ->setParameter('username',$username)
+                    ->getQuery();
+                ;
+       return $query->getOneOrNullResult();
+    }
 }

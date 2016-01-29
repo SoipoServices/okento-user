@@ -5,7 +5,8 @@
     "require": {
         "doctrine/orm": "^2.5",
         "symfony/assetic-bundle": "^2.7",
-        "knplabs/knp-menu": "^2.1"
+        "knplabs/knp-menu": "^2.1",
+        "okento/admin-bundle": "dev-master"
     },
     "require-dev": {
 

@@ -1,3 +1,6 @@
+welcome: Benvenuti
+welcome.on: Benvenuti su
+
 title:
   update: Aggiorna il tuo profilo
   list: Lista degli utenti iscritti
@@ -18,11 +21,6 @@ label:
     email: Email
     firstname: Nome
     lastname: Cognome
-    secondname: Secondo nome
-    affiliation: Affiliazione
-    association:  "Ingegnere italiano iscritto all'Ordine?"
-    associationCode: "Numero di iscrizione all'albo"
-    associationProvince: "Provincia di iscrizione all'Ordine"
     active: Attivo
 choices:
    title:

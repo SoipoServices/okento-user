@@ -26,7 +26,8 @@ class UserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
-        $user = $this->userManager->findUserByUsername($username);
+
+        $user = $this->userManager->findUserByUsernameOrEmail($username);
         if ($user) {
             return $user;
         }

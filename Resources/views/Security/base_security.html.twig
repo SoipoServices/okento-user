@@ -1,0 +1,16 @@
+{% extends 'SoipoOkentoAdminBundle::base.html.twig' %}
+
+{% block content %}
+    <div class="{{ template_name|default('security') }}-box">
+        <div class="login-logo">
+            {% block logo %}<a href="/" alt="{{ "welcome" | trans }}">{{ "welcome.on" | trans }}<b>{{ "okento" | trans }}</b></a>{% endblock %}
+        </div>
+        <div class="{{ template_name|default('security')}}-box-body">
+            {{ flashes() }}
+            {% block inner_content %}
+            {% endblock %}
+        </div>
+        <!-- /.form-box -->
+    </div><!-- /.{{ template_name }}-box -->
+{% endblock %}
+

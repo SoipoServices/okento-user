@@ -16,7 +16,7 @@ class SecurityController extends Controller
 
         // 1) build the form
         $user = new User();
-        $form = $this->createForm(new JoinType(),$user);
+        $form = $this->createForm(JoinType::class,$user);
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
@@ -70,7 +70,7 @@ class SecurityController extends Controller
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        $form = $this->createForm(new LoginType(),null,array(
+        $form = $this->createForm(LoginType::class,null,array(
             'action' => $this->generateUrl('soipo_okento_user_login_check'),
             'method' => 'POST',
         ));
@@ -90,7 +90,7 @@ class SecurityController extends Controller
     public function resetPasswordAction(Request $request)
     {
 
-        $form = $this->createForm(new ResetPasswordType());
+        $form = $this->createForm(ResetPasswordType::class);
 
 
         $form->handleRequest($request);
@@ -137,5 +137,6 @@ class SecurityController extends Controller
     {
         // this controller will not be executed,
         // as the route is handled by the Security system
+
     }
 }

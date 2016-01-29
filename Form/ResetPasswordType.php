@@ -2,6 +2,8 @@
 
 namespace Soipo\Okento\UserBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,8 +16,8 @@ class ResetPasswordType extends UserType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('_username', 'text',array('label' => 'label.username','required'=>true))
-            ->add('_email', 'email',array('label' => 'label.email','required'=>true));
+            ->add('_username', TextType::class,array('label' => 'label.username','required'=>true))
+            ->add('_email', EmailType::class,array('label' => 'label.email','required'=>true));
     }
 
 
@@ -30,6 +32,10 @@ class ResetPasswordType extends UserType
             'csrf_field_name' => '_token',
             'intention'       => 'resetPassword'
         ));
+    }
+
+    public function getBlockPrefix(){
+        return 'resetPassword';
     }
 
     /**

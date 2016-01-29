@@ -60,9 +60,5 @@ join:
     title: Registrati!
     content: Registrati come membro
 reset.password:
+    title: Resetta la tua password
     content: "Inserisci  il nome utente e l'email per ricevere un altra password"
-
-abstract:
-  template:
-    doc: Scarica il documento di esempio dell' Abstract in formato doc
-    pdf: Scarica il documento di esempio dell' Abstract in formato pdf

@@ -2,6 +2,13 @@
 
 namespace Soipo\Okento\UserBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,28 +21,22 @@ class JoinType extends UserType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title','choice',array('label' => 'label.title','required'=>false,'placeholder'=>'select.title','choices'=>$this->getTitles()))
-            ->add('firstName','text',array('label' => 'label.firstname','required'=>true))
-            ->add('secondName','text',array('label' => 'label.secondname','required'=>false))
-            ->add('lastName','text',array('label' => 'label.lastname','required'=>true))
-            ->add('email', 'email',array('label' => 'label.email','required'=>true))
-            ->add('country','country',array('label' => 'label.country','placeholder'=>'select.country','required'=>false))
-            ->add('city','text',array('label' => 'label.city','required'=>false))
-            ->add('province','text',array('label' => 'label.province','required'=>false))
-            ->add('postalCode','text',array('label' => 'label.postalCode','required'=>false))
-            ->add('phone','text',array('label' => 'label.phone','required'=>false))
-            ->add('username', 'text',array('label' => 'label.username','required'=>true))
-            ->add('plainPassword', 'repeated', array(
-                'type' => 'password',
+            ->add('title',ChoiceType::class,array('label' => 'label.title','required'=>false,'placeholder'=>'select.title','choices'=>$this->getTitles()))
+            ->add('firstName',TextType::class,array('label' => 'label.firstname','required'=>true))
+            ->add('lastName',TextType::class,array('label' => 'label.lastname','required'=>true))
+            ->add('email', EmailType::class,array('label' => 'label.email','required'=>true))
+            ->add('country',CountryType::class,array('label' => 'label.country','placeholder'=>'select.country','required'=>false))
+            ->add('city',TextType::class,array('label' => 'label.city','required'=>false))
+            ->add('province',TextType::class,array('label' => 'label.province','required'=>false))
+            ->add('postalCode',TextType::class,array('label' => 'label.postalCode','required'=>false))
+            ->add('phone',TextType::class,array('label' => 'label.phone','required'=>false))
+            ->add('username', TextType::class,array('label' => 'label.username','required'=>true))
+            ->add('plainPassword', RepeatedType::class, array(
+                'type' => PasswordType::class,
                 'first_options'  => array('label' => 'label.password'),
                 'second_options' => array('label' => 'label.password.repeat'),
                 'required'=>true
             ))
-            ->add('affiliation', 'text',array('label' => 'label.affiliation','required'=>false))
-            ->add('association', 'checkbox',array('label' => 'label.association','required'=>false))
-            ->add('associationCode', 'text',array('label' => 'label.associationCode','required'=>false))
-            ->add('associationProvince', 'text',array('label' => 'label.associationProvince','required'=>false))
-            //->add('terms',null,array('label'=>'label.terms'))
             ;
     }
 
@@ -52,6 +53,10 @@ class JoinType extends UserType
         ));
     }
 
+
+    public function getBlockPrefix(){
+        return 'join';
+    }
 
     /**
      * @return string

@@ -2,12 +2,12 @@
 
 namespace Soipo\Okento\UserBundle\Controller;
 
-use Soipo\Okento\AdminBundle\Controller\AdminController;
+use Soipo\Okento\AdminBundle\Controller\AdminController as BaseAdminController;
 use Soipo\Okento\UserBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class UserAdminController extends AdminController
+class AdminController extends BaseAdminController
 {
     public function updateAction(Request $request)
     {
@@ -15,7 +15,7 @@ class UserAdminController extends AdminController
 
         // 1) build the form
         $user = $this->getUser();
-        $form = $this->createForm(new UserType(),$user);
+        $form = $this->createForm(UserType::class,$user);
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
@@ -41,7 +41,7 @@ class UserAdminController extends AdminController
         }
 
         return $this->render(
-            'SoipoOkentoUserBundle:User:update.html.twig',
+            'SoipoOkentoUserBundle:Admin:update.html.twig',
             array('form' => $form->createView())
         );
     }
@@ -56,7 +56,7 @@ class UserAdminController extends AdminController
         $users = $userManager->findAllUsers();
 
         return $this->render(
-            'SoipoOkentoUserBundle:User:list.html.twig',
+            'SoipoOkentoUserBundle:Admin:list.html.twig',
             array('users' => $users)
         );
     }
@@ -77,7 +77,7 @@ class UserAdminController extends AdminController
         }
 
         return $this->render(
-            'SoipoOkentoUserBundle:User:view.html.twig',
+            'SoipoOkentoUserBundle:Admin:view.html.twig',
             array('user' => $user)
         );
     }

@@ -36,7 +36,7 @@ class UserManager
     }
 
     /**
-     * Finds a user by username
+     * Finds a user by username or passowrd
      *
      * @param string $username
      *
@@ -44,7 +44,19 @@ class UserManager
      */
     public function findUserByUsername($username)
     {
-        return $this->findUserBy(array('username' => $username));
+        return $this->findUserBy(array('username' => $username,'active'=>true));
+    }
+
+    /**
+     * Finds a user by username
+     *
+     * @param string $username
+     *
+     * @return UserInterface
+     */
+    public function findUserByUsernameOrEmail($username)
+    {
+        return $this->repository->findOneByUsernameOrEmail($username);
     }
 
     /**

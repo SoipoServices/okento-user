@@ -4,9 +4,9 @@ namespace Soipo\Okento\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Soipo\Okento\UserBundle\Model\ContactableUser;
-use Soipo\Okento\UserBundle\Model\WpcamUser;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * User
@@ -23,6 +23,7 @@ class User extends ContactableUser
 
     /**
      * @var integer
+     * @JMS\Type("integer")
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,6 +33,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="email", type="string", length=255)
      * @Assert\NotBlank()
@@ -42,6 +44,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="username", type="string", length=255)
      * @Assert\NotBlank()
@@ -49,6 +52,8 @@ class User extends ContactableUser
     protected $username;
 
     /**
+     * @var string
+     *
      * The below length depends on the "algorithm" you use for encoding
      * the password, but this works well with bcrypt
      *
@@ -58,6 +63,8 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
+     *
      * @Assert\Length(min=8)
      * @Assert\Length(max = 4096)
      */
@@ -65,6 +72,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="salt", type="string", length=255, nullable=true)
      */
@@ -72,6 +80,7 @@ class User extends ContactableUser
 
     /**
      * @var array
+     * @JMS\Type("array")
      *
      * @ORM\Column(name="roles", type="array", nullable=true)
      */
@@ -79,6 +88,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="title", type="string", length=10, nullable=true)
      */
@@ -86,6 +96,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="first_name", type="string", length=255)
      */
@@ -94,6 +105,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="last_name", type="string", length=255)
      */
@@ -102,6 +114,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
@@ -109,6 +122,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="province", type="string", length=255, nullable=true)
      */
@@ -116,6 +130,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="postal_code", type="string", length=20, nullable=true)
      */
@@ -123,6 +138,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="country", type="string", length=255, nullable=true)
      */
@@ -130,6 +146,7 @@ class User extends ContactableUser
 
     /**
      * @var string
+     * @JMS\Type("string")
      *
      * @ORM\Column(name="phone", type="string", length=20, nullable=true)
      */
@@ -137,17 +154,24 @@ class User extends ContactableUser
 
     /**
      * @var boolean
+     * @JMS\Type("boolean")
      *
      * @ORM\Column(name="active", type="boolean", options={"default":false}, nullable=true)
      */
     protected $active;
 
     /**
+     * @var \DateTime
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:sO'>")
+     *
      * @ORM\Column(type="datetime")
      */
     protected $createdAt;
 
     /**
+     * @var \DateTime
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:sO'>")
+     *
      * @ORM\Column(type="datetime")
      */
     protected $updatedAt;
@@ -155,6 +179,7 @@ class User extends ContactableUser
 
     /**
      * @var boolean
+     * @JMS\Type("boolean")
      */
     protected $terms;
 
@@ -210,8 +235,5 @@ class User extends ContactableUser
     {
         return $this->terms;
     }
-
-    use WpcamUser;
-
 }
 

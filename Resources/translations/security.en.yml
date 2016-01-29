@@ -15,13 +15,7 @@ label:
     country: Select your coutntry
     email: Enter your email address
     firstname: Enter your first name
-    secondname: Enter your middle name
     lastname: Enter your last name
-    affiliation: Enter your affiliation
-    association: Are you a member of the  Italian engineering association (Ordine degli Ingegneri)?
-    associationCode: Enter your association number
-    associationProvince: Enter your association province
-    terms: I agree to the terms
     remember.me: Remember me
 choices:
    title:
@@ -48,7 +42,7 @@ email:
     body: "<h1>Hi %user%<h1> <p>Here your new password: %plainPassword%</p>"
 
 #adminlte2
-welcome.okento: Welcome on Okento !
+welcome.okento: Welcome on Okento
 or: or
 already.a.member: I already have a membership
 link:
@@ -62,10 +56,5 @@ join:
     title: Join us !
     content: Register a new author
 reset.password:
+    title: Reset your password!
     content: Enter your username and email to reset your password
-
-abstract:
-  template:
-    doc: Download the abstract doc template
-    pdf: Download the abstract pdf template
-    tip: A link for abstract submission will be posted here in January 2016

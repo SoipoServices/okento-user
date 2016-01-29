@@ -1,125 +1,17 @@
-{% extends 'SoipoOkentoUserBundle::base.html.twig' %}
+{% extends 'SoipoOkentoUserBundle:Security:base_security.html.twig' %}
 
-{% block title %} {{ parent() }} - {{ 'join.title'|trans({},'security') }}{% endblock %}
+{% set title = 'register.title' %}
+{% set template_name = 'register' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets
-    '@SoipoOkentoAdminBundle/Resources/public/css/iCheck/square/blue.css'
-    filter='?cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-{% endblock %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
-
-{% block body_class %}hold-transition register-page{% endblock %}
-
-{% form_theme form _self %}
-
-{% block form_errors %}
-    {% spaceless %}
-        {% if errors|length > 0 %}
-            <ul class="error">
-                {% for error in errors %}
-                    <li>{{ error.message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endspaceless %}
-{% endblock form_errors %}
-
-{% block form_row %}
-    <div class="form-group has-feedback">
-        {{ form_widget(form, {'attr': {'class': 'form-control','placeholder': form.vars.label}}) }}
-        {{ form_errors(form) }}
-    </div>
-{% endblock %}
-
-
-{% block _join_association_row %}
-    <div class="form-group has-feedback">
-        <div class="checkbox">
-            {{ form_label(form) }}
-            {{ form_widget(form, {'attr': {'class': 'form-control','placeholder': form.vars.label}}) }}
-            {{ form_errors(form) }}
-			<div style="clear: both;"></div>
-        </div>
-    </div>
-{% endblock %}
-
-{% block _join_associationCode_row %}
-    <div class="form-group has-feedback">
-        {{ form_widget(form, {'attr': {'class': 'form-control association','placeholder': form.vars.label}}) }}
-        {{ form_errors(form) }}
-    </div>
-{% endblock %}
-
-{% block _join_associationProvince_row %}
-    <div class="form-group has-feedback">
-        {{ form_widget(form, {'attr': {'class': 'form-control association','placeholder': form.vars.label}}) }}
-        {{ form_errors(form) }}
-    </div>
-{% endblock %}
-
-
-{% block content %}
-    <div class="register-box">
-        {% block flashes %}
-            {% for label, flashes in app.session.flashbag.all %}
-                {% for flash in flashes %}
-                    <div class="alert alert-{{ label }} alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        {{ flash }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        {% endblock %}
-
-        <div class="register-box-body">
-            <p class="login-box-msg">{{ "join.content"|trans({},'security') }}</p>
+{% block inner_content %}
+            <p>{{ "join.content"|trans({},'security') }}</p>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             <button type="submit"
                     class="btn btn-primary btn-block btn-flat">{{ 'button.register'|trans({},'security') }}</button>
             {{ form_end(form) }}
-
             <br/>
-            <a href="{{ asset('WCPAM-abstract-template_OK.doc') }}" class="text-center">{{ 'abstract.template.doc'|trans({},'security') }}</a>
-            <br/>
-            <a href="{{ asset('WCPAM-abstract-template_OK.pdf') }}" class="text-center">{{ 'abstract.template.pdf'|trans({},'security') }}</a>
-            <br/>
-            <p>{{ 'abstract.template.tip'|trans({},'security') }}</p>
-            <br/>
-            <a href="{{ path('soipo_okento_user_login') }}" class="text-center">{{ 'already.a.member'|trans({},'security') }}</a>
-        </div>
-        <!-- /.form-box -->
-    </div><!-- /.register-box -->
+            <p><a href="{{ path('soipo_okento_user_login') }}" class="text-center">{{ 'already.a.member'|trans({},'security') }}</a></p>
 {% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {% javascripts
-    '@SoipoOkentoAdminBundle/Resources/public/js/iCheck/icheck.min.js' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-{% endblock %}
-{% block documentReady %}
-
-    $('input').iCheck({
-    checkboxClass: 'icheckbox_square-blue',
-    radioClass: 'iradio_square-blue',
-    increaseArea: '20%' // optional
-    });
-
-    if($('#join_association').is(':checked')  == false ) {
-    $('.association').hide()
-    }
-
-    $('#join_association').on('ifChecked', function(event){
-    $('.association').show().attr('required','required');
-    });
-
-    $('#join_association').on('ifUnchecked', function(event){
-    $('.association').hide().removeAttr('required').val('');
-    });
-{% endblock documentReady %}
