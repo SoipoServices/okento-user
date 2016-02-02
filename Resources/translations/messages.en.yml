@@ -39,6 +39,7 @@ action:
     delete: Delete
     active: Active
     admin: Make admin
+    edit: Edit
 
 button:
   save: Save

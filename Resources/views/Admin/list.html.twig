@@ -32,18 +32,22 @@
                             <button type="button" class="btn btn-default btn-sm">
                                 <a href="{{ url('soipo_okento_user_view',{'id':user.id}) }}"><i class="fa fa-eye"></i> {{ 'action.view'|trans }}</a>
                             </button>
-                            {% if not user.active %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                {% if(not user.active) %}
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <a href="{{ url('soipo_okento_user_active',{'id':user.id}) }}"><i class="fa fa-power-off"></i> {{ 'action.active'|trans }}</a>
+                                    </button>
+                                {% endif %}
+                                {% if  'ROLE_ADMIN' in user.roles == false %}
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <a href="{{ url('soipo_okento_user_active',{'id':user.id,'admin': true}) }}"><i class="fa fa-power-off"></i> {{ 'action.admin'|trans }}</a>
+                                    </button>
+                                {% endif %}
                                 <button type="button" class="btn btn-default btn-sm">
-                                    <a href="{{ url('soipo_okento_user_active',{'id':user.id}) }}"><i class="fa fa-power-off"></i> {{ 'action.active'|trans }}</a>
-                                </button>
-                            {% elseif  'ROLE_ADMIN' in user.roles == false %}
-                                <button type="button" class="btn btn-default btn-sm">
-                                    <a href="{{ url('soipo_okento_user_active',{'id':user.id,'admin': true}) }}"><i class="fa fa-power-off"></i> {{ 'action.admin'|trans }}</a>
+                                    <a href="{{ url('soipo_okento_user_delete',{'id':user.id}) }}"><i class="fa fa-times"></i> {{ 'action.delete'|trans }}</a>
                                 </button>
                             {% endif %}
-                            <button type="button" class="btn btn-default btn-sm">
-                                <a href="{{ url('soipo_okento_user_delete',{'id':user.id}) }}"><i class="fa fa-times"></i> {{ 'action.delete'|trans }}</a>
-                            </button>
+
                         </div>
                     </td>
                 </tr>
