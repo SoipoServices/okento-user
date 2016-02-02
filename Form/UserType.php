@@ -49,7 +49,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'Soipo\Okento\UserBundle\Entity\User',
-            'translation_domain' => 'user',
+            'translation_domain' => 'messages',
             'csrf_protection' => true,
             'csrf_field_name' => '_token',
             'intention'       => 'user'

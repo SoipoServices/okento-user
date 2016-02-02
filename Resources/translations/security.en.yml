@@ -36,7 +36,7 @@ button:
 email:
   join:
     subject: "Hi %user%, thank you for joining."
-    body: "<p>Thank you for registering as a user with WCPAM2017. Please keep track of your username and password.<p><p>Username: %username%</p><p>Password: %password% </p><p>Thank you,</p><p>WCPAM2017 Organizing Committee wcpam2017@wcpam2017.com Website: <a href='www.wcpam2017.com'>www.wcpam2017.com</a></p>"
+    body: "<p>Thank you for registering as a user. Please keep track of your username and password.<p><p>Username: %username%</p><p>Password: %password% </p><p>Thank you,</p></p>"
   reset.password:
     subject:  "Hi %user%, here your new password."
     body: "<h1>Hi %user%<h1> <p>Here your new password: %plainPassword%</p>"
@@ -54,7 +54,7 @@ login:
   title:  Log in !
 join:
     title: Join us !
-    content: Register a new author
+    content: Register a new member
 reset.password:
     title: Reset your password!
     content: Enter your username and email to reset your password
